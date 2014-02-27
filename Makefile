@@ -332,6 +332,11 @@ tags.ref tags.html: tags
 perlhtml: tags $(DOCS)
 	./vim2html.pl tags $(DOCS)
 
+ghp: html
+	mkdir -p gh-pages
+	mv *.html gh-pages
+	ghp-import -n gh-pages
+
 clean:
 	-rm doctags *.html tags.ref
 
